@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ADD DRUGS</title>
+        <link rel="stylesheet" href="/project_work/html_forms/forms.css">
+    </head>
+    <body>
+        <form action="/project_work/forms_php/drugsform.php" method="POST" enctype="multipart/form-data">
+            <h2>DRUGS REGISTRATION FORM </h2>
+            <br><br>
+            <label for="TradeName">TradeName:</label>
+            <br><br>
+            <input type="text" id="TradeName" name="TradeName">
+            <br><br>
+            <label for="Formula">Formula</label>
+            <br><br>
+            <input type="text" id="Formula" name="Formula">
+            <br><br>
+            <label for="Category">CATEGORY OF DRUG</label>
+            <select id="Category" name="Category">
+                <option value="Stimulant">Stimulant</option>
+                
+                <option value="Antifungal">Antifungal</option>
+                <option value="Supplements">Supplements</option>
+                <option value="Antiemetic">Antiemetic</option>
+              
+                <option value="Antiviral">Antiviral</option>
+                <option value="Antibacterial">Antibacterial</option>
+
+            </select>
+            <br><br>
+            <label>Image of Drug</label>
+            <br><br>
+            <input type="file" name="drg_img" id="drg_img">
+            <br><br>
+            <button name="btn">ADD DRUG</button>
+
+        </form>
+    </body>
+</html>

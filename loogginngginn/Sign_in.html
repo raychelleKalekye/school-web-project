@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="Sign_in.css"> 
+</head>
+<body>
+    <div class="Container">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-button">Log-In</button>
+            </div>
+
+            <form class="input-group" action="/project_work/loogginngginn/login.php" method="POST">
+                <label for="user">Select USER:</label>
+                <select name="user" id="user">
+                    <option value="Patient">Patient</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value ="Admin">Admin</option>
+                </select><br><br>
+
+                <input type="text" name="uname" class="input-field" placeholder="Enter your Username" required><br>
+                <input type="password" name="pass" class="input-field" placeholder="Enter your password" required><br><br>
+                
+                <br><br><br><br><br><br>
+                <span class="signup-text">Don't have an account?<br><br> <a href="Scriptlogin.html">Sign Up Now</a></span>
+              
+                
+             
+                <button type="submit" name="login" class="submit-btn">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

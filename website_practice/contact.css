@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bacasime Antique', serif;
+}
+
+h2 {
+    font-size: 32px;
+    color: #f6f6f6;
+    text-align: center;
+}
+
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(logo.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    opacity: 0.5;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(19, 158, 165);
+    opacity: 0.9;
+}
+
+nav img {
+    width: 75px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 3px 4px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #ffffff;
+    display: block;
+    margin: auto;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+nav .fa{
+    display:none;
+}
+
+.container{
+width:80%;
+margin:auto;
+text-align:center;
+padding:top 100px;
+display:flex;
+justify-content: space-between;
+}
+.container h2{
+    font-size:25px;
+    font-weight:600;
+    color:black;
+  
+}
+.container h3{
+    font-size:20px;
+    font-weight:300;
+    color:black;
+   
+}
+
+.form{
+    text-align:left;
+    flex:12 left;
+}
+
+.Info{
+margin-top:5%;
+margin-left:10px;
+flex:0 0 right;
+justify-content:space-between;
+
+}
+.Info-col{
+    flex-basis:31%;
+    background:#5192c8;
+    border-radius:10px;
+    margin-bottom:5%;
+    padding:20px 12px;
+    box-sizing:border-box;
+    
+    transition:0.5s;
+}
+.Info-col h3{
+   text-align:center;
+   font-weight:600;
+   font-size:15px;
+   margin:10px; 
+}
+.Info h2{
+    font-size:20px;
+    font-weight:600;
+    color:black;
+}
+.Info-col:hover{
+    box-shadow:0 0 20px 0 #f44336;
+}
+
+@media(max-width:700px){
+    .Info{
+        flex-direction: column;
+    }
+    
+
+
+}
+.form{
+    border: 3px black;
+}
+
+

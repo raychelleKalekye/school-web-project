@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<script>
+function showActorForm() {
+var actor = document.getElementById("actor").value;
+var patientForm = document.getElementById("patientForm");
+var doctorForm = document.getElementById("doctorForm");
+var pharmacistForm = document.getElementById("pharmacistForm");
+var companyForm = document.getElementById("companyForm");
+
+
+// Show/hide sections based on the selected actor
+if (actor === "Patient") {
+patientForm.style.display = "block";
+doctorForm.style.display = "none";
+pharmacistForm.style.display = "none";
+} else if (actor === "Doctor") {
+patientForm.style.display = "none";
+doctorForm.style.display = "block";
+pharmacistForm.style.display = "none";
+} else if (actor === "Pharmacist") {
+patientForm.style.display = "none";
+doctorForm.style.display = "none";
+pharmacistForm.style.display = "block";
+}
+hideSuccessMessage();
+}
+
+function hideSuccessMessage() {
+var successMessage = document.getElementById("successMessage");
+if (successMessage) {
+successMessage.style.display = "none";
+}
+}
+
+function showSuccessMessage() {
+hideSuccessMessage();
+var successMessage = document.getElementById("successMessage");
+if (successMessage) {
+successMessage.style.display = "block";
+setTimeout(function () {
+window.location.href = "Sign_in.html"; // Redirect after 3 seconds
+}, 3000);
+}
+}
+
+function validateForm() {
+var registrationSuccess = document.getElementById("registrationSuccess");
+if (registrationSuccess) {
+registrationSuccess.value = "1";
+showSuccessMessage();
+}
+}
+
+</script>
+</head>
+<body>
+<h1>Regisration Form</h1>
+<select name="Actor" id="actor" onchange="showActorForm()">
+<option value="Patient">Patient</option>
+<option value="Doctor">Doctor</option>
+<option value="Pharmacist">Pharmacist</option>
+<option value="Company">Pharmaceutical Company</option>
+</select>
+
+<div class="container">
+<form method="post" action="forms_php/patientform.php" id="patientForm"></form>
+<head>
+<title> PATIENT FORM</title>
+<link rel="stylesheet" href="project_work/html_forms/forms.css">
+</head>
+<body>
+<h2>PATIENT SIGN UP FORM</h2>
+<br><hr><br>
+<h3>PLEASE ENTER THE FOLLOWING CREDENTIALS</h3>
+<label for="Pfname">First Name</label>
+<input type="text " id="Pfname" name="Pfname">
+<br><br>
+<label for="Plname">Surname</label>
+<input type="text" id="Plname" name="Plname">
+<br><br>
+<label for="id">SSN</label>
+<input type="number" id="id" name="id">
+<br><br>
+<label for="gender">Gender</label>
+<label for="F">F</label>
+<input type="radio" value="F" id="F" name="gender">
+<label for="M">M</label>
+<input type="radio" value="M" id="M" name="gender">
+<label for="Other">Other</label>
+<input type="radio" value="other" id="other" name="gender">
+<br><br>
+<label for="Address">Location-Address</label>
+<input type="text" id="Address" name="Address">
+<br><br>
+<label for="Age">Age </label>
+<input type="number" id="Age" name="Age" min="0">
+<br><br>
+<label for="email">Email</label>
+<input type="email" id="email" name="email">
+<br><br>
+
+<label for="Confirm_Password">Confirm password:</label>
+<input type="password" name="Confirm_Password" id="Confirm_Password" required><br><br>
+
+
+<button type="submit">Register Patient</button>
+</form>
+
+<form method="post" action="doctorform.php" id="doctorForm" style="display: none;">
+<h2>Doctor Registration Form</h2>
+<label for="FirstName">Doctor First Name:</label>
+<input type="text" id="FirstName" name="FirstName" required><br><br>
+
+<label for="LastName">Doctor Last Name:</label>
+<input type="text" id="LastName" name="LastName" required><br><br>
+
+<label for="Email_Address">Email Address:</label>
+<input type="text" id="Email_Address" name="Email_Address" required><br><br>
+
+<label for="PhoneNo">Phone Number:</label>
+<input type="text" id="PhoneNo" name="PhoneNo" required><br><br>
+
+
+<label for="Gender">Gender:</label>
+<select id="Gender" name="Gender">
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Non-binary">Non-binary</option>
+</select><br><br>
+
+<label for="DateOfBirth">Date Of Birth:</label>
+<input type="date" id="DateOfBirth" name="DateOfBirth" required><br><br>
+
+<label for="address">City Address:</label>
+<input type="text" id="address" name="address" required><br><br>
+
+<label for="Years of Experience">Years of Experience:</label>
+<input type="text" id="Years of Experience" name="Years of Experience" required><br><br>
+<label for="DoctorSalary">Doctor Salary:</label>
+<input type="text" id="DoctorSalary" name="DoctorSalary" required><br><br>
+
+
+
+<label for="Speciality">Speciality:</label>
+<select id="Speciality" name="Speciality">
+<option value="General practitioner">General practitioner</option>
+<option value="Pediatrician">Pediatrician</option>
+<option value="Dermatologist">Dermatologist</option>
+<option value="Psychiatrist">Psychiatrist</option>
+</select><br><br>
+
+<label for="Create_Password">Create password:</label>
+<input type="password" name="Create_Password" id="Create_Password" value="" placeholder="Create password" required><br><br>
+
+<label for="Confirm_Password">Confirm password:</label>
+<input type="password" name="Confirm_Password" id="Confirm_Password" value="" placeholder="Confirm password" required><br><br>
+
+<button type="submit">Register Doctor</button>
+</form>
+
+<form method="post" action="PharmacistForm.php" id="pharmacistForm" style="display: none;">
+<h2>Pharmacist Registration Form</h2>
+<label for="Pharfname">Pharmacist First Name:</label>
+<input type="text" id="Pharfname" name="Pharfname" required><br><br>
+
+<label for="Pharlname">Pharmacist Last Name:</label>
+<input type="text" id="Pharlname" name="Pharlname" required><br><br>
+
+<label for="Email_Address">Email Address:</label>
+<input type="text" id="Email_Address" name="Email_Address" required><br><br>
+
+<label for="PharPhoneNo">Phone Number:</label>
+<input type="text" id="PharPhoneNo" name="PharPhoneNo" required><br><br>
+
+
+<label for="Gender">Gender:</label>
+<select id="Gender" name="Gender">
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Non-binary">Non-binary</option>
+</select><br><br>
+
+<label for="DateOfBirth">DateOfBirth:</label>
+<input type="date" id="DateOfBirth" name="DateOfBirth" required><br><br>
+
+<label for="address">City Address:</label>
+<input type="text" id="address" name="address" required><br><br>
+
+<label for="Years of Experience">Years of Experience:</label>
+<input type="text" id="Years of Experience" name="Years of Experience" required><br><br>
+<label for="Pharmacicst Salary">Pharmacist Salary:</label>
+<input type="text" id="PharmacistSalary" name="PharmacistSalary" required><br><br>
+
+
+<label for="Create_Password">Create password:</label>
+<input type="password" name="Create_Password" id="Create_Password" value="" placeholder="Create password" required><br><br>
+
+<label for="Confirm_Password">Confirm password:</label>
+<input type="password" name="Confirm_Password" id="Confirm_Password" value="" placeholder="Confirm password" required><br><br>
+
+
+<button type="submit">Register Pharmacist</button>
+</form>
+</div>
+</body>
+</html>

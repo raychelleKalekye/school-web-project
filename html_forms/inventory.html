@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <heaD>
+        <title>INVENTORY FORM</title>
+        <link rel="stylesheet" href="/project_work/html_forms/forms.css">
+    </heaD>
+    <form class="form1" action="/project_work/forms_php/inventoryform.php" method="POST">
+        <h2>INVENTORY FORM</h2>
+        <br><hr><br>
+        <h3>Fill in the following credentials</h3>
+        <br><br>
+        <label for="InventoryID" >Inventory ID</label>
+        <input type="text" id="InventoryID" name="InventoryID">
+        <br><br>
+        <label for="TradeName">Trade Name</label>
+        <input type="text" id="TradeName" name="TradeName">
+        <br><br>
+        <label for="Formula">Formula</label>
+        <input type="text" id="Formula" name="Formula">
+        <br><br>
+        <label for="Category">CATEGORY OF DRUG</label>
+        <select id="Category" name="Category">
+            <option value="Stimulant">Stimulant</option>
+            
+            <option value="Antifungal">Antifungal</option>
+            <option value="Supplements">Supplements</option>
+            <option value="Antiemetic">Antiemetic</option>
+            <option value="Psychotropic">Psychotropic</option>
+            <option value="Cardiovascular">Cardiovascular</option>
+            <option value="Antiviral">Antiviral</option>
+            <option value="Antibacterial">Antibacterial</option>
+
+        </select>
+        <br><br>
+        <label for="Quantity">Quantity
+        </label>
+        <input type="number" id="Quantity" name="Quantity">
+        <br><br>
+        <label for="PharName">Pharmacys Name</label>
+        <input type="text" id="PharName" name="PharName">
+        <br><br>
+        <label for="PharPhoneNo">Pharmacys Phone Number</label>
+        <input type="tel" id="PharPhoneNo" name="PharPhoneNo">
+        <br><br>
+        <button>SUBMIT</button> 
+    </form>
+</html>

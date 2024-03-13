@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="patient.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="Home.html"><img src="doc.png"></a>
+                <h2>RAYLENE DAWA</h2>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-window-close" aria-hidden="true" onclick="hideMenu()"></i><br><br>
+                    <ul>
+                        <li><a href="/project_work/website_practice/Home.html">HOME</a></li>
+                        <li><a href="/project_work/website_practice/About.html">ABOUT</a></li>
+                        <li><a href="/project_work/loogginngginn/Sign_in.html">LOGIN/SIGNUP</a></li>
+                        <li><a href="/project_work/website_practice/Contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+         </nav>
+         <div class="text-box">
+            <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu() {
+                    navLinks.style.right = "0";
+                }
+                function hideMenu() {
+                    navLinks.style.right = "-200px";
+                }
+            </script>
+            <section class="menu-buttons">
+                <h2>DOCTOR'S MAIN MENU</h2>
+                <br><br>
+                <div class="buttons">
+
+                
+                <div class="button-col">
+                    <a href="/project_work/main_menu/docdetails.php">DOCTOR'S DETAILS</a>
+
+                </div>
+                <div class="button-col">
+                    <a href="/project_work/main_menu/docdiag.php">DIAGNOSIS HISTORY</a>
+
+                </div>
+                <div class="button-col">
+                    <a href="/project_work/main_menu/docpresc.php">PRESCRIPTION HISTORY</a>
+
+                </div>
+                <div class="button-col">
+                    <a href="/project_work/html_forms/diagnosis.html">GIVE DIAGNOSIS</a>
+
+                </div>
+                <div class="button-col">
+                    <a href="/project_work/html_forms/prescription.html">GIVE PRESCRIPTION</a>
+                </div>
+                <div class="button-col">
+                    <a href="/project_work/drug_menu/main.html">VIEW DRUGS</a>
+                </div>
+                </div>
+            </section>
+        </section>
+    </body>
+</html>

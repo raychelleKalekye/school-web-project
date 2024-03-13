@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+    <title>DRUGS SECTION</title>
+    <link rel="stylesheet" href="/project_work/drug_menu/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+        <section class="header">
+            <nav>
+                <a href="/project_work/website_practice/Home.html"><img src="/project_work/main_menu/doc.png"></a>
+                <h2>RAYLENE DAWA</h2>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-window-close" aria-hidden="true" onclick="hideMenu()"></i><br><br>
+                    <ul>
+                        <li><a href="/project_work/website_practice/Home.html">HOME</a></li>
+                        <li><a href="/project_work/website_practice/About.html">ABOUT</a></li>
+                        <li><a href="/project_work/loogginngginn/Sign_in.html">LOGIN/SIGNUP</a></li>
+                        <li><a href="/project_work/website_practice/Contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+         </nav>
+         <div class="text-box">
+            <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu() {
+                    navLinks.style.right = "0";
+                }
+                function hideMenu() {
+                    navLinks.style.right = "-200px";
+                }
+            </script>
+        <section class="menu-buttons">
+        <h2> DRUGS' SECTION </h2>
+        <br><br>
+        <h3> CHOOSE A CATEGORY</h3>
+        <div class="buttons">
+            <div class="button-col">
+                <a href="/project_work/drug_menu/antiemetic.php">ANTIEMETIC</a>
+
+            </div>
+            <div class="button-col">
+               <a href="/project_work/drug_menu/antifungal.php">ANTIFUNGAL</a>
+            </div>
+            <div class="button-col">
+               <a href="/project_work/drug_menu/antibacterial.php">ANTIBACTERIAL</a>
+            </div>
+            <div class="button-col">
+                <a href="/project_work/drug_menu/antiviral.php">ANTIVIRAL</a>
+            </div>
+            <div class="button-col">
+               <a href="/project_work/drug_menu/supplements.php">SUPPLEMENTS</a>
+            </div>
+           
+        </div>
+        </section>
+    </body>
+</html>

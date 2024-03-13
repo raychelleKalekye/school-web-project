@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ABOUT RAYLENE</title>
+        <link rel="stylesheet" href="/project_work/website_practice/about.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <section class="header">
+     
+            <nav>
+                <a href="/project_work/website_practice/Home.html"><img src="doc.png"></a> <h2>RAYLENE DAWA</h2>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-window-close" aria-hidden="true" onclick="hideMenu()"></i><br><br>
+                    <ul>
+                        <li><a href="/project_work/website_practice/Home.html">HOME</a></li>
+                        <li><a href="/project_work/website_practice/About.html">ABOUT</a></li>
+                        <li><a href="/project_work/loogginngginn/Sign_in.html">LOGIN/SIGNUP</a></li>
+                        <li><a href="/project_work/website_practice/Contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+         </nav>
+   </section>
+    <section class="container">
+      
+        <div>
+            <h2> FOR INQUIRIES</h2>
+          <br><br>
+           <h3> TO SEND AN EMAIL:</h3>
+           <br><br>
+   
+      
+           <form action="/email.php" method="POST">
+            
+             <label for="Fname">First Name:</label>
+             <br><br>
+             <input type="text" id="Fname" name="Fname">
+             <br><br>
+             <label for="Lname">Last Name:</label>
+             <br><br>
+              <input type="text" id="Lname" name="Lname">
+             <br><br>
+              <label for="PhoneNo">Phone Number:</label>
+             <br><br>
+              <input type="tel" id="PhoneNo" name="PhoneNo">
+             <br><br>
+              <label for="Email">Email:</label>
+                <br><br>
+             <input type="email" id="Email" name="Email">
+              <br><br>
+              <label for="Subject">Subject:</label>
+              <br><br>
+             <input type="text" id="Subject" name="Subject">
+             <br><br>
+             <label for="Message">Message:</label>
+             <br><br>
+             <textarea id="Message" name="Message" rows="17" cols="50"></textarea>
+             <br><br>
+         </form>
+        </div>
+        <div class="Info">
+            <div><h2>DETAILS:</h2>
+                <br><br</div>
+              <div class="Info-col">
+                <h3 i class="fa fa-map-marker" aria-hidden="true"></i>LOCATION:</h3>
+                <br>
+                <p>Karuna Road,Opposite Westgate Mall,Lifestyle Mall,2nd floor</p>
+            
+              </div>
+            <br><br>
+               <div class="Info-col">
+                <h3<i class="fa fa-envelope" aria-hidden="true"></i>EMAIL:</h3>
+                <p>rayleneinquiries@gmail.com/rayleneadministration@co.ke</p>
+            
+              </div>
+             <br><br>
+              <div class="Info-col">
+                <h3 i class="fa fa-globe" aria-hidden="true"></i>POSTAL ADDRESS:</h3>
+                <p>P.O BOX 608765, 00200, City Square, Nairobi,Kenya</p>
+            
+              </div>
+            <br><br>
+              <div class="Info-col">
+                <h3 i class="fa fa-phone" aria-hidden="true"></i>PHONE NUMBER:</h3>
+                <p>(+254)89234512/34000021</p>
+            
+              </div>
+        </div>
+
+        </div>
+        
+        
+    </section>
+    <br><br>
+    <script>
+
+        var navLinks=document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>

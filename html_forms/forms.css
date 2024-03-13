@@ -1,0 +1,28 @@
+body{
+    padding:25px;
+    background-image: url(wallpaperr.jpg);
+
+}
+.form1{
+    font-size:16px;
+    width: 80%;
+}
+.form1 *{
+    box-sizing:border-box;
+    line-height:1.5;
+}
+.form1 h2{
+    font-size:32px;
+    font-weight:600;
+    color: #17bd75;
+    text-align:center;
+}
+.form1 label{
+    font-family: 'Bacasime Antique', serif;
+    color: rgb(44, 62, 51);
+    font-size:20px;
+    font-weight: 700px;;
+}
+.form1 input:hover{
+    background-color: #17bd75;
+}

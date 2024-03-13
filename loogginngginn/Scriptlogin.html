@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <script>
+    function showActorForm() {
+      var actor = document.getElementById("actor").value;
+      var patientForm = document.getElementById("patientForm");
+      var doctorForm = document.getElementById("doctorForm");
+      var pharmacyForm = document.getElementById("pharmacyForm");
+      var adminForm = document.getElementById("adminForm");
+
+      // Show/hide sections based on the selected actor
+      if (actor === "Patient") {
+        patientForm.style.display = "block";
+        doctorForm.style.display = "none";
+        pharmacyForm.style.display = "none";
+        adminForm.style.display ="none";
+      } else if (actor === "Doctor") {
+        patientForm.style.display = "none";
+        doctorForm.style.display = "block";
+        pharmacyForm.style.display = "none";
+        adminForm.style.display ="none";
+      } else if (actor === "Pharmacy") {
+        patientForm.style.display = "none";
+        doctorForm.style.display = "none";
+        pharmacyForm.style.display = "block";
+        adminForm.style.display ="none";
+        
+      }
+      else if (actor === "Admin"){
+        patientForm.style.display = "none";
+        doctorForm.style.display = "none";
+        pharmacyForm.style.display = "none";
+        adminForm.style.display ="block";
+
+      }
+    }
+  </script>
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Registration Form</title>
+  <link rel="stylesheet" href="/project_work/html_forms/forms.css">
+</head>
+
+<body>
+  <h1>REGISTRATION FORM</h1>
+  <select name="Actor" id="actor" onchange="showActorForm()">
+    <option value="Patient">Patient</option>
+    <option value="Doctor">Doctor</option>
+    <option value="Pharmacy">Pharmacy</option>
+    <option value ="Admin">Admin</option>
+  </select>
+  
+  <div class="container">
+    <form method="post" action="Register.php" id="patientForm">
+    
+
+        <h2>Patient Registration Form</h2>
+        
+        <label for="Pfname">First Name</label>
+        <input type="text " id="Pfname" name="Pfname">
+        <br><br>
+        <label for="Plname">Surname</label>
+        <input type="text" id="Plname" name="Plname">
+        <br><br>
+        <label for="id">SSN</label>
+        <input type="number" id="id" name="id">
+        <br><br>
+        <label for="gender">Gender</label>
+        <label for="F">F</label>
+            <input type="radio" value="F" id="F" name="gender">
+            <label for="M">M</label>
+            <input type="radio" value="M" id="M" name="gender">
+            <label for="Other">Other</label>
+            <input type="radio" value="other" id="other" name="gender">
+        <br><br>
+        <label for="Address">Location-Address</label>
+        <input type="text" id="Address" name="Address">
+        <br><br>
+        <label for="YearofBirth">Year Of Birth </label>
+        <input type="date" id="YearofBirth" name="YearofBirth">
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+        <label for="Create_Password">Create password:</label>
+        <input type="password" name="Create_Password" id="Create_Password" required><br><br>
+
+        <label for="Confirm_Password">Confirm password:</label>
+        <input type="password" name="Confirm_Password" id="Confirm_Password" required><br><br>
+
+        <button type="submit">Register Patient</button>
+    
+    </form>
+  </div>
+
+
+    <form method="post" action="doctorform.php" id="doctorForm" style="display: none;" >
+    
+        <h2>Doctor Registration Form</h2>
+        <br><br>
+        <label for="DName"> Doctors Name</label>
+        <input type="text" id="DName" name="DName">
+        <br><br>
+        <label for="DSSN">Doctors SSN</label>
+        <input type="number" id="DSSN" name="DSSN">
+        <br><br>
+        <label for="Specialty">Specialty:</label>
+        <select id="Specialty" name="Specialty">
+           <option value="Internal medicine">Internal Medicine</option>
+           <option value="General Prcaticioner">General Practicioner</option>
+            <option value="Opthamology">Opthamology</option>
+            <option value="Emergency medicine">Emergency medicine</option>
+            <option value="Otorhinolaryngology">Otorhinolaryngology</option>
+            <option value="Anesthesiology">Anesthesiology</option>
+            <option value="Oncology">Oncology</option>
+            <option value="Rheumatology">Rheumatology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Obstetrics and gynaecology">Obstetrics and Gynaecology</option>
+            <option value="Dermatology">Dermartology</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Endocrinology">Endocrinology</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Family Medicine">Family Medicine</option>       
+        </select>
+        <br><br>
+        <label for="YearsofExperience">Years of Experience</label>
+        <input type="number" id="YearsofExperience" name="YearsofExperience">
+        <br><br>
+       
+       <label for="Create_Password">Create password:</label>
+       <input type="password" name="Create_Password" id="Create_Password" value="" placeholder="Create password" required><br><br>
+
+       <label for="Confirm_Password">Confirm password:</label>
+       <input type="password" name="Confirm_Password" id="Confirm_Password" value="" placeholder="Confirm password" required><br><br>
+
+       <button type="submit">Register Doctor</button>
+    </form>
+
+    <form method="post" action="PharmacyForm.php" id="pharmacyForm" style="display: none;">
+
+      <h2>Pharmacy Registration Form</h2>
+      <br><br>
+      <label for="PharName">Pharmacys Name</label>
+      <input type="text" id="PharName" name="PharName">
+      <br><br>
+      <label for="PharPhoneNo">Pharmacys Phone Number</label>
+      <input type="text" id="PharPhoneNo" name="PharPhoneNo">
+      <br><br>
+      <label for="LoAddress">Location</label>
+      <input type="text" id="LoAddress" name="LoAddress">
+      <br><br>
+      
+      <label for="Create_Password">Create password:</label>
+      <input type="password" name="Create_Password" id="Create_Password" value="" placeholder="Create password" required><br><br>
+      <br><br>
+      <label for="Confirm_Password">Confirm password:</label>
+      <input type="password" name="Confirm_Password" id="Confirm_Password" value="" placeholder="Confirm password" required><br><br>
+
+
+      <button type="submit">Register Pharmacy</button>
+    </form>
+    
+    <form method="post" action="Admin.php" id="adminForm" style="display: none;">
+
+      <h2>Admin Registration Form</h2>
+      <label for="ASSN">Administrator's SSN:</label>
+      <input type="text" id="ASSN" name="ASSN" required><br><br>
+      
+      <label for="AdminFname">Administrator's first name</label>
+      <input type="text" id="Pharfname" name="Pharfname">
+      <br><br>
+      <label for="AdminLname">Administrator's last name</label>
+      <input type="text" id="Pharlname" name="Pharlname">
+      <br><br>
+      <label for="Create_Password">Create password:</label>
+      <input type="password" name="Create_Password" id="Create_Password" value="" placeholder="Create password" required><br><br>
+    
+      <label for="Confirm_Password">Confirm password:</label>
+      <input type="password" name="Confirm_Password" id="Confirm_Password" value="" placeholder="Confirm password" required><br><br>
+
+
+      <button type="submit">Register Administrator</button>
+    </form>
+    
+
+  </div>
+</body>
+</html>
