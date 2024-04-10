@@ -1,0 +1,202 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+                
+    
+        <title><%= title %></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/public/javascripts/tables.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+         
+            .table1{
+                border-collapse: collapse;
+                margin: 25px;
+                font-size: 12px;
+                min-width:400px;
+                border-radius :5px 5px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0,0,0,0.15 )
+            }
+
+            .table1 th{
+                background-color:#009879;
+                color:aliceblue;
+                text-align: left;
+                font-weight:bold;
+                padding:14px 12px;}
+            .table1 td{
+                padding:12px 15px;
+                }   
+            .table1 tr{
+                border-bottom:1px solid #dddd;
+            }
+            .table1 tr:nth-of-type(even){
+                background-color: #f3f3f3;
+             }
+            .table1 tr:last-of-type{
+                border-bottom: 2px solid #009879;
+            }
+            .table1 tr:active-row{
+                font-weight: bold;
+                color:#009879;
+            }
+            h1{
+                text-align:center;
+                font: size 45px;
+                color:#009879;
+                font-family: 'Bacasime Antique', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center mt-3 mb-3"><%= title %></h1>
+            
+            <% if(action == 'add') { %>
+                <form class="form1" action="/patient/" method="POST">
+                    <h2>PATIENT SIGN UP FORM</h2>
+                    <br><hr><br>
+                    <h3>PLEASE ENTER THE FOLLOWING CREDENTIALS</h3>
+                    <label for="Pfname">First Name</label>
+                    <input type="text " id="Pfname" name="Pfname">
+                    <br><br>
+                    <label for="Plname">Surname</label>
+                    <input type="text" id="Plname" name="Plname">
+                    <br><br>
+                    <label for="SSN">SSN</label>
+                    <input type="number" id="SSN" name="SSN">
+                    <br><br>
+                    <label for="gender" id="Gender">Gender</label>
+                    <label for="F">F</label>
+                        <input type="radio" value="F" id="F" name="gender">
+                        <label for="M">M</label>
+                        <input type="radio" value="M" id="M" name="gender">
+                        <label for="Other">Other</label>
+                        <input type=    "radio" value="other" id="other" name="gender">
+                    <br><br>
+                    <label for="Address">Location-Address</label>
+                    <input type="text" id="Address" name="Address">
+                    <br><br>
+                    <label for="YearofBirth">Year Of Birth </label>
+                    <input type="date" id="YearofBirth" name="YearofBirth">
+                    <br><br>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <br><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <br><br>
+                    <button value="Add">SUBMIT</button>
+        
+        </form>
+            <% }
+            else if(action=='edit'){%>
+                <form class="form1" action="/patient/editpatient/<%= patientData.SSN %>" method="POST">
+
+                    <h2>PATIENT SIGN UP FORM</h2>
+                    <br><hr><br>
+                    <h3>PLEASE ENTER THE FOLLOWING CREDENTIALS</h3>
+                    <label for="Pfname">First Name</label>
+                    <input type="text " id="Pfname" name="Pfname" value="<%= patientData.Pfname %>">
+                    <br><br>
+                    <label for="Plname">Surname</label>
+                    <input type="text" id="Plname" name="Plname" value="<%= patientData.Plname %>">
+                    <br><br>
+                    <label for="SSN">SSN</label>
+                    <input type="number" id="SSN" name="SSN" value="<%= patientData.SSN %>">
+                    <br><br>
+                    <label for="gender" id="Gender">Gender</label>
+                    <label for="F">F</label>
+                    <input type="radio" value="F" id="F" name="gender" <%= patientData.Gender === 'F' ? 'checked' : '' %>>
+                    <label for="M">M</label>
+                    <input type="radio" value="M" id="M" name="gender" <%= patientData.Gender === 'M' ? 'checked' : '' %>>
+                    <label for="Other">Other</label>
+                    <input type="radio" value="other" id="other" name="gender" <%= patientData.Gender === 'other' ? 'checked' : '' %>>
+
+                    
+                    <br><br>
+                    <label for="Address">Location-Address</label>
+                    <input type="text" id="Address" name="Address"value="<%= patientData.Address %>">
+                    <br><br>
+                    <label for="YearofBirth">Year Of Birth </label>
+                    <input type="date" id="YearofBirth" name="YearofBirth" value="<%= patientData.YearofBirth %>">
+                    <br><br>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="<%= patientData.email %>">
+                    <br><br>
+                    <button value="Edit">SUBMIT</button>
+                                        
+                    <script>
+                        document.getElementById('Gender').value = "<%= patientData.Gender %>";
+                    </script>
+ 
+ 
+                    
+        
+        </form>
+                <% }
+            else { %>
+
+                <br><br><hr><br><br>
+                <a class="btn btn-primary" href="/patient/addpatient">Add PATIENT</a>
+                <br><br>
+                <table class="table1">
+                    <tr>
+                        <th>Patients SSN</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Year of birth</th>
+                        <th>Location</th>
+                        <th>Email</th>
+                        
+                    </tr>
+            
+                            <%
+                            if(patientData.length > 0)
+                            {
+                                patientData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.SSN %></td>
+                                <td><%= data.Pfname %></td>
+                                <td><%= data.Plname %></td>
+                                <td><%= data.YearofBirth %></td>
+                                <td><%= data.Address %></td>
+                                <td><%= data.email %></td>
+                                <td>
+                                    <a href="/patient/editpatient/<%=data.SSN%>" class="btn btn-primary">Edit Patient</a>
+                                </td>
+                                
+                                
+                                
+                                       
+
+                                <td></td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    
+                
+            
+
+            <% } %>
+
+        </div> 
+       
+
+    </body>

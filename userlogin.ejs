@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="/public/css/signIn.css"> 
+</head>
+<body>
+    <div class="Container">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-button">Log-In</button>
+            </div>
+           
+            <form class="input-group" action="/patient/fetchBYSSN" method="POST">
+            
+                
+                
+                    <label for="SSN">Patient ID:</label>
+                    <input type="text" id="SSN" name="SSN" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                  
+                    <button type="submit">Login</button>
+                  </form>
+                  
+                <input type="checkbox" class="check-box"><span>Do not Remember Password</span><br>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+       
+            <span class="signup-text">Don't have an account? <a href="/register">Sign Up Now</a></span>
+        </div>
+       
+    </div>
+    <script src="js/userlogin.js">
+        
+    </script>
+    
+</body>
+</html>
+<%- include ./reusables/footer %>

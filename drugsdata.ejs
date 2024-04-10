@@ -1,0 +1,183 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+                
+    
+        <title>DRUGS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+         
+            .table1{
+                border-collapse: collapse;
+                margin: 25px;
+                font-size: 12px;
+                min-width:400px;
+                border-radius :5px 5px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0,0,0,0.15 )
+            }
+
+            .table1 th{
+                background-color:#009879;
+                color:aliceblue;
+                text-align: left;
+                font-weight:bold;
+                padding:14px 12px;}
+            .table1 td{
+                padding:12px 15px;
+                }   
+            .table1 tr{
+                border-bottom:1px solid #dddd;
+            }
+            .table1 tr:nth-of-type(even){
+                background-color: #f3f3f3;
+             }
+            .table1 tr:last-of-type{
+                border-bottom: 2px solid #009879;
+            }
+            .table1 tr:active-row{
+                font-weight: bold;
+                color:#009879;
+            }
+            h1{
+                text-align:center;
+                font: size 45px;
+                color:#009879;
+                font-family: 'Bacasime Antique', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center mt-3 mb-3"><%= title %></h1>
+            
+            <% if(action == 'add') { %>
+                
+             <form action="/drugsdata/" method="POST" enctype="multipart/form-data">
+
+            <h2>DRUGS REGISTRATION FORM </h2>
+            <br><br>
+            <label for="TradeName">TradeName:</label>
+            <br><br>
+            <input type="text" id="TradeName" name="TradeName">
+            <br><br>
+            <label for="Formula">Formula</label>
+            <br><br>
+            <input type="text" id="Formula" name="Formula">
+            <br><br>
+            <label for="Category">CATEGORY OF DRUG</label>
+                <select id="Category" name="Category">
+                    <option value="Stimulant">Stimulant</option>
+                    
+                    <option value="Antifungal">Antifungal</option>
+                    <option value="Supplements">Supplements</option>
+                    <option value="Antiemetic">Antiemetic</option>
+                
+                    <option value="Antiviral">Antiviral</option>
+                    <option value="Antibacterial">Antibacterial</option>
+
+                </select>
+            <br><br>
+            <label>Image of Drug</label>
+            <br><br>
+            <input type="file" name="drg_img" id="drg_img">
+            <br><br>
+            <button name="btn">ADD DRUG</button>
+
+        </form>
+            <% }
+            
+            else if(action=='edit'){%>
+                <form class="form1" action="/drugsdata/editdrug/<%= drugsData.TradeName %>" method="POST" enctype="multipart/form-data">
+
+                    <h2>Drugs Editing FORM</h2>
+                    <br><hr><br>
+                        <h3>PLEASE ENTER THE FOLLOWING CREDENTIALS</h3>
+                        <label for="TradeName">TradeName:</label>
+                        <br><br>
+                        <input type="text" id="TradeName" name="TradeName" value="<%= drugsData.TradeName %>">
+                        <br><br>
+                        <label for="Formula">Formula</label>
+                        <br><br>
+                        <input type="text" id="Formula" name="Formula" value="<%= drugsData.Formula %>">
+                        <br><br>
+                        <label for="Category">CATEGORY OF DRUG</label>
+                        <select id="Category" name="Category">
+                            <option value="Stimulant">Stimulant</option>
+                            <option value="Antifungal">Antifungal</option>
+                            <option value="Supplements">Supplements</option>
+                            <option value="Antiemetic">Antiemetic</option>
+                            <option value="Antiviral">Antiviral</option>
+                            <option value="Antibacterial">Antibacterial</option>
+                        </select>
+                        <br><br>
+                        <button name="btn">ADD DRUG</button>
+                </form>
+                      
+                    <script>
+                        document.getElementById('Category').value = "<%= drugsData.Category %>";
+                    </script>
+                <% }
+               
+             else { %>
+
+                <br><br><hr><br><br>
+                <a class="btn btn-primary" href="/drugsdata/add_drug">Add DRUG</a>
+                <br><br>
+                <table class="table1">
+                    <tr>
+                        <th>TRADE NAME</th>
+                        <th>FORMULA</th>
+                        <th>CATEGORY</th>
+                        <th>IMAGE OF DRUG</th>
+                  
+                    </tr>
+            
+                            <%
+                            if(drugsData.length > 0)
+                            {
+                                drugsData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.TradeName %></td>
+                                <td><%= data.Formula %></td>
+                                <td><%= data.Category %></td>
+                                <td>
+                                    <img src="data:image;base64,<%= data.drg_img %>" alt="Image" style="width: 100px; height: 100px;">
+                               
+                                </td>
+                                <td>
+                                    <a href="/drugsdata/editdrug/<%=data.TradeName%>" class="btn btn-primary">Edit Drug</a>
+                                </td>
+                                <td>
+                                    <a href="/admin/drugsdata/deletedrug/<%=data.TradeName%>" class="btn btn-primary">Delete Drug</a>
+                                </td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    
+                
+            
+
+            <% } %>
+
+        </div> 
+      
+      
+    </body>
